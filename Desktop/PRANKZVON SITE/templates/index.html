@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PRANKZVON</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+<video autoplay muted loop id="bg-video">
+  <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="tabs">
+  <button class="tab-button active" onclick="showTab('main')">Основное</button>
+  <button class="tab-button" onclick="showTab('admins')">Админы</button>
+  <button class="tab-button" onclick="showTab('tools')">Софты</button>
+  <button class="tab-button" onclick="showTab('partners')">Наши партнёры</button>
+</div>
+
+<div id="main-tab" class="tab-content active">
+  <h1 style="--i:0">📡 Наши каналы</h1>
+  {% for ch in channels %}
+    <div class="channel" style="--i:{{ loop.index }}">
+      <img src="{{ ch.avatar }}" alt="avatar">
+      <div class="channel-info">
+        <strong>{{ ch.title }}</strong><br>
+        {{ ch.desc }}<br>
+        {% if "borispranks_bot" in ch.link %}
+          <a class="button" style="margin-left: 10px" href="https://yoomoney.ru/to/4100118598530249" target="_blank">💸 Поддержать проект</a>
+        {% endif %}
+        <a class="button" href="{{ ch.link }}" target="_blank">Перейти</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div id="admins-tab" class="tab-content">
+  <div class="channel" style="--i:1">
+    <img src="https://gclnk.com/gexy341c" alt="Владелец">
+    <div class="channel-info">
+      <strong>ВЛАДЕЛЕЦ:</strong> <a href="https://t.me/Bes689" target="_blank">Православный Бес</a>
+    </div>
+  </div>
+
+  <div class="channel" style="--i:2">
+    <img src="https://gclnk.com/adtagsyx" alt="Jiarbuz">
+    <div class="channel-info">
+      <strong>АДМИНИСТРАТОР:</strong> <a href="https://t.me/jiarbuz" target="_blank">Jiarbuz</a>
+    </div>
+  </div>
+
+  <div class="channel" style="--i:3">
+    <img src="https://gclnk.com/IfrHEfpM" alt="Newer">
+    <div class="channel-info">
+      <strong>МОДЕРАТОР:</strong> <a href="https://t.me/jtidifif" target="_blank">Newer</a>
+    </div>
+  </div>
+</div>
+
+<div id="tools-tab" class="tab-content">
+  <div class="software-list" style="text-align:center; margin: 40px auto;">
+    <h2>🛠️ Софты</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+      <a class="button" href="https://gclnk.com/vWgGodpN" target="_blank">🔧 Скачать Nesca</a>
+      <a class="button" href="https://cloud.mail.ru/public/11we/vbzNxnSQi" target="_blank">📹 Скачать SmartPSS</a>
+      <a class="button" href="https://disk.yandex.ru/d/vd4QA5NyOylR9w" target="_blank">🌐 Скачать IPC Scanner</a>
+      <a class="button" href="https://gclnk.com/vWgGodpN" target="_blank">🎙 Скачать Soundpad</a>
+      <a class="button" href="https://gclnk.com/67HxnR6Q" target="_blank">🕵️ Скачать Noon</a>
+    </div>
+  </div>
+</div>
+
+<div id="partners-tab" class="tab-content">
+  <div style="margin: 30px; text-align: center;">
+    <img src="/static/vncentral.png" alt="VNCentral Logo" style="max-width: 200px; border-radius: 20px;"><br><br>
+    <strong>VNCentral Team</strong><br>
+    <a href="https://t.me/VNCentralTeam" target="_blank">@VNCentralTeam</a>
+  </div>
+</div>
+
+<footer>© 2025 PRANKZVON. Сделано от Jiarbuz</footer>
+
+<script>
+function showTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+  document.getElementById(tab + '-tab').classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+<script>
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  document.body.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+});
+</script>
+
+</body>
+</html>
