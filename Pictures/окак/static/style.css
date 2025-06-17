@@ -1,0 +1,267 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('bg.avif') center center / cover no-repeat fixed;
+    overflow-x: hidden;
+    color: white;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 20px;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+.channel {
+    background: rgba(0, 0, 0, 0.5);
+    margin: 10px 20px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+    opacity: 0;
+}
+
+.channel img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.channel-info {
+    flex: 1;
+}
+
+a.button {
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5865F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 20px;
+    transition: background 0.3s;
+}
+
+a.button:hover {
+    background-color: #4752c4;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #ccc;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* JS управляет перемещением фона */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: inherit;
+    z-index: -1;
+    transform: scale(1.05);
+    transition: transform 0.1s ease-out;
+}
+
+
+
+
+.tab-button.active {
+  background-color: #5865F2;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+  justify-content: center;
+}
+.tab-button {
+  padding: 10px 25px;
+  background-color: #1e1f25;
+  color: #aaa;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tab-button.active {
+  background-color: #5865F2;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(88, 101, 242, 0.4);
+}
+.tab-button:hover {
+  background-color: #2c2f3c;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Background video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+/* Epic Games UI-like Styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f12;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.channel {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+}
+
+.channel:hover {
+  transform: scale(1.02);
+}
+
+.channel img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.channel-info {
+  text-align: left;
+}
+
+a.button {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 10px 24px;
+  background-color: #007aff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+  background-color: #0051b3;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.tab-button {
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #1c1c1e;
+  border: 1px solid #444;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #007aff;
+  color: white;
+}
+
+
+/* Анимация появления вкладки */
+.tab-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tab-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимация появления карточек с задержкой */
+.channel {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.15s);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Плавный hover эффект на кнопки */
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background-color: #2f67ff;
+  color: white;
+}
